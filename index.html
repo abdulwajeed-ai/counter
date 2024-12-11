@@ -1,0 +1,109 @@
+<!-- developing a counter -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>basic counter</title>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            width: 270px;
+            /* height: 250px; */
+            padding: 20px;
+            background-color: black;
+            border-radius: 20px;
+        }
+
+        .display {
+            border-radius: 20px;
+            background-color: rgb(0, 0, 0);
+            text-align: center;
+            color: white;
+            font-size: 30px;
+        }
+
+        .btn1,
+        .btn2,
+        .btn3 {
+            padding: 10px;
+            font-size: 15px;
+            border-radius: 20px;
+            border: none;
+            font-weight: 900;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            gap: 7px;
+        }
+
+        .btn1 {
+            background-color: greenyellow;
+            border: 2px solid white;
+            color: black;
+
+        }
+
+        .btn2 {
+            background-color: rgb(244, 98, 98);
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn3 {
+            background-color: orangered;
+            color: white;
+            border: 2px solid white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="display">
+            <h1>0</h1>
+            <h5 class="message"></h5>
+        </div>
+        <div class="buttons">
+            <button class="btn1">Increase</button>
+            <button class="btn2">Decrease</button>
+            <button class="btn3">Reset</button>
+        </div>
+    </div>
+    <script>
+        let increase = document.querySelector(".btn1")
+        let decrease = document.querySelector(".btn2")
+        let reset = document.querySelector(".btn3")
+        let change = document.querySelector("h1")
+        let inc = 0;
+        let resetMessage = document.querySelector("message")
+
+        increase.addEventListener("click", () => {
+            inc++;
+            change.innerHTML = inc;
+        })
+        decrease.addEventListener("click", () => {
+            inc--;
+            change.innerHTML = inc;
+            if (inc == 0) {
+                return 0
+            }
+        })
+        reset.addEventListener("click", () => {
+            inc = 0;
+            change.innerHTML = inc;
+            resetMessage.innerHTML = "counter reset Done";
+            setTimeout(()=>{
+                resetMessage.innerHTML = " ";
+            },5000);
+        })
+
+    </script>
+</body>
+
+</html>
